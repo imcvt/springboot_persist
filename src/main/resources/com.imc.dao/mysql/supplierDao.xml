@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.imc.dao.SupplierDao">
+
+  <resultMap id="BaseResultMap" type="com.imc.model.Supplier">
+  </resultMap>
+
+  <select id="findAll" resultType="com.imc.model.Supplier">
+      select * from supplier
+  </select>
+</mapper>
