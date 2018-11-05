@@ -5,6 +5,7 @@ import com.imc.dao.Supplier3Dao;
 import com.imc.dao.Supplier4Dao;
 import com.imc.dao.SupplierDao;
 import com.imc.repository.SupplierRepository;
+import com.imc.service.SupplierCacheService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author luoly
@@ -41,6 +44,9 @@ public class WebController {
 
     @Autowired
     Supplier4Dao supplier4Dao;
+
+    @Autowired
+    SupplierCacheService supplierCacheService;
 
     private static final Logger logger = LoggerFactory.getLogger(WebController.class);
 
@@ -73,5 +79,11 @@ public class WebController {
     private String logback(@RequestParam String name) {
         logger.info("logtest->" + name);
         return name + new Date();
+    }
+
+    @GetMapping("/cache")
+    private Object cacheList(@RequestParam Integer id) {
+
+        return supplierCacheService.findById(id);
     }
 }

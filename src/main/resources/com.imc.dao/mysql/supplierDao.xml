@@ -2,10 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.imc.dao.SupplierDao">
 
-  <resultMap id="BaseResultMap" type="com.imc.model.Supplier">
-  </resultMap>
+    <resultMap id="BaseResultMap" type="com.imc.model.Supplier">
+    </resultMap>
 
-  <select id="findAll" resultType="com.imc.model.Supplier">
+    <select id="findAll" resultType="com.imc.model.Supplier">
       select * from supplier
   </select>
+
+    <select id="findByIds" resultType="com.imc.model.Supplier">
+        select * from supplier where id in
+        <foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+
+    <select id="findById" resultType="com.imc.model.Supplier">
+        select * from supplier where id = #{id}
+    </select>
 </mapper>

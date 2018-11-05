@@ -19,4 +19,8 @@ public interface SupplierDao {
     //如果要用xml文件，新建xml文件后配置其中的namespace建立关联，再把xml的路径配置到application.properties中可以扫描到即可
 //    @Select(value = "select * from supplier")
     public List<Supplier> findAll();
+
+    public List<Supplier> findByIds(List<Object> id);
+
+    public Supplier findById(Integer id);
 }
