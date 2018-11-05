@@ -14,7 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * @author luoly
  * @date 2018/11/2 11:29
- * @description
+ * @description  这里简单描述一下连接池与持久层框架的区别，连接池是简化了我们的程序连接数据库操作，而持久层框架更多的关注将编程语言映射成sql结构化语言，
+ *              两者协同操作，并且后者依赖于前者
  */
 
 @RestController
