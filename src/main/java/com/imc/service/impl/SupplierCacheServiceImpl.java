@@ -21,6 +21,7 @@ import java.util.List;
 public class SupplierCacheServiceImpl implements SupplierCacheService{
 
     private static final String DEMO_CACHE_NAME = "suppliers";
+    private static final String CAFFEINE_CACHE_NAME = "caffeine_cache";
 
     @Autowired
     private SupplierDao supplierDao;
@@ -29,7 +30,7 @@ public class SupplierCacheServiceImpl implements SupplierCacheService{
         return this.supplierDao.findByIds(idList);
     }
 
-    @Cacheable(value = DEMO_CACHE_NAME,key = "#id")
+    @Cacheable(value = CAFFEINE_CACHE_NAME,key = "#id")
     @Override
     public Supplier findById(Integer id) {
         log.info("SupplierService.findById query from DB;id---->"+id);
