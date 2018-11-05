@@ -2,6 +2,7 @@ package com.imc.controller;
 
 import com.imc.dao.Supplier2Dao;
 import com.imc.dao.Supplier3Dao;
+import com.imc.dao.Supplier4Dao;
 import com.imc.dao.SupplierDao;
 import com.imc.repository.SupplierRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,9 @@ public class WebController {
     @Autowired
     Supplier3Dao supplier3Dao;
 
+    @Autowired
+    Supplier4Dao supplier4Dao;
+
     @GetMapping("/jpa")
     private Object list() {
         return supplierRepository.findAll();
@@ -50,5 +54,10 @@ public class WebController {
     @GetMapping("/dbutils")
     private Object listWithDBUtils() {
         return supplier3Dao.findAll();
+    }
+
+    @GetMapping("/jooq")
+    private Object listWithJooq() {
+        return supplier4Dao.findAll();
     }
 }

@@ -54,16 +54,23 @@
 			<version>1.3.2</version>
 		</dependency>
 
-		<!-- jdbcTemplate -->
+		<!-- jdbcTemplate持久化 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jdbc</artifactId>
 		</dependency>
 
+		<!--dbutils持久化-->
 		<dependency>
 			<groupId>commons-dbutils</groupId>
 			<artifactId>commons-dbutils</artifactId>
 			<version>1.7</version>
+		</dependency>
+
+		<!--jooq持久化-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jooq</artifactId>
 		</dependency>
 
 		<!--druid连接池-->
