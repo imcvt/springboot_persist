@@ -12,7 +12,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import javax.persistence.Entity;
 
 @SpringBootApplication
-@EnableAutoConfiguration
 @EnableCaching
 @ComponentScan("com.imc")
 @EntityScan("com.imc.model")
