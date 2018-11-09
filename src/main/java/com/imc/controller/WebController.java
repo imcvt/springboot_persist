@@ -4,12 +4,14 @@ import com.imc.dao.Supplier2Dao;
 import com.imc.dao.Supplier3Dao;
 import com.imc.dao.Supplier4Dao;
 import com.imc.dao.SupplierDao;
+import com.imc.mq.Msg;
 import com.imc.repository.SupplierRepository;
 import com.imc.service.SupplierCacheService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jms.core.JmsTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -48,6 +50,9 @@ public class WebController {
     @Autowired
     SupplierCacheService supplierCacheService;
 
+    @Autowired
+    JmsTemplate jmsTemplate;
+
     private static final Logger logger = LoggerFactory.getLogger(WebController.class);
 
     @GetMapping("/jpa")
@@ -83,7 +88,7 @@ public class WebController {
 
     @GetMapping("/cache")
     private Object cacheList(@RequestParam Integer id) {
-
+        jmsTemplate.send("my-destination",new Msg());
         return supplierCacheService.findById(id);
     }
 }
