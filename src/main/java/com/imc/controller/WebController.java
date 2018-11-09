@@ -88,7 +88,12 @@ public class WebController {
 
     @GetMapping("/cache")
     private Object cacheList(@RequestParam Integer id) {
-        jmsTemplate.send("my-destination",new Msg());
         return supplierCacheService.findById(id);
+    }
+
+    @GetMapping("/sendMq")
+    private Object sendMq() {
+        jmsTemplate.send("my-destination",new Msg());
+        return "SUCCESS !";
     }
 }
