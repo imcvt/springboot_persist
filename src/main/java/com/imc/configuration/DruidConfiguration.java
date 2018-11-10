@@ -21,7 +21,9 @@ import javax.sql.DataSource;
  */
 
 @Configuration
-@PropertySource(value = "classpath:druid.properties")
+//@PropertySource(value = "classpath:druid.properties")
+@PropertySource(value = "classpath:druid.yml")
+//@ConfigurationProperties(prefix = "spring.datasource")
 public class DruidConfiguration {
 
     private static final Log log = LogFactory.getLog(DruidConfiguration.class);
